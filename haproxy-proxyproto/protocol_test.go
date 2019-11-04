@@ -134,7 +134,6 @@ func TestParse_ipv4(t *testing.T) {
 	}
 
 	pl := &Listener{Listener: l}
-
 	go func() {
 		conn, err := net.Dial("tcp", pl.Addr().String())
 		if err != nil {

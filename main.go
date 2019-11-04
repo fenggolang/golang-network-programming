@@ -7,23 +7,28 @@ import (
 	"github.com/armon/go-proxyproto"
 )
 
+/**
+服务端
+ */
 func main() {
-	// Create a listener
-	//list, err := net.Listen("tcp", "127.0.0.1:8080")
-	list, err := net.Listen("tcp", "172.18.1.242:9907")
+	// 创建一个监听器
+	//listener, err := net.Listen("tcp", "172.18.1.242:9907")
+	listener, err := net.Listen("tcp", "0.0.0.0:8080")
 	if err != nil {
 		fmt.Printf("Listen失败:%v", err)
 		return
 	}
-	// Wrap listener in a proxyproto listener
-	proxyList := &proxyproto.Listener{Listener: list}
-	conn, err := proxyList.Accept()
-	if err != nil {
-		fmt.Printf("Accept失败:%v", err)
-		return
+	// 用proxyproto 监听器包装原生监听器
+	proxyListener := &proxyproto.Listener{Listener: listener}
+	for {
+		conn, err := proxyListener.Accept()
+		if err != nil {
+			fmt.Printf("Accept失败:%v", err)
+			return
+		}
+		addr := conn.RemoteAddr().(*net.TCPAddr)
+		fmt.Printf("经过haproxy透传用户源地址IP=%s\n", addr.IP.String())
+		fmt.Printf("经过haproxy透传用户源端口PORT=%d\n", addr.Port)
+		conn.Close()
 	}
-	addr := conn.RemoteAddr()
-	fmt.Println("addr", addr.Network())
-	fmt.Println("addr", addr.String())
-
 }
