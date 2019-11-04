@@ -7,9 +7,6 @@ import (
 	"github.com/armon/go-proxyproto"
 )
 
-/**
-服务端
- */
 func main() {
 	// 创建一个监听器
 	listener, err := net.Listen("tcp", "0.0.0.0:8080")
@@ -29,7 +26,7 @@ func main() {
 		fmt.Printf("经过haproxy透传用户源地址=%s\n", addr.IP.String())
 		fmt.Printf("经过haproxy透传用户源端口=%d\n", addr.Port)
 		//resp:=fmt.Sprintf("经过haproxy透传用户源地址=%s,源端口=%d",addr.IP.String(),addr.Port)
-		resp:=fmt.Sprintf("sourceIP=%s,sourcePort=%d",addr.IP.String(),addr.Port)
+		resp:=fmt.Sprintf("clientIP=%s,clientPort=%d",addr.IP.String(),addr.Port)
 		conn.Write([]byte(resp))
 		conn.Close()
 	}
