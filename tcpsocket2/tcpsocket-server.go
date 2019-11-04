@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fenggolang/golang-network-programming/tcpsocket2/config"
+	"golang-network-programming/tcpsocket2/config"
 )
 
 func main() {

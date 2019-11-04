@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/fenggolang/golang-network-programming/tcpsocket2/config"
+	"golang-network-programming/tcpsocket2/config"
 )
 
 // 首先通过Dial建立与服务器的连接，之后读取标标准输入的行，将其传递给服
