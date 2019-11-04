@@ -24,4 +24,9 @@ ping telnet的区别
 　telnet: 用来检查指定ip是否开放指定端口的
 说明：
 Ping不通并不一定代表网络不通。ping是基于ICMP协议的命令，就是你发出去一个数据包，对方收到后返给你一个！就好比声纳。这个协议是可以禁止的！禁止后，如果你ping对方，对方收到后就不回馈给你，这样你就显示无法ping通，但实际你们还是连着的！telnet是登陆服务器的！服务没禁止就能登陆
+
+clientIP clientPort
+backendIP backendPort
+proxyIP proxyPort
+serverIP serverPort
 ```
