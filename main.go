@@ -9,7 +9,8 @@ import (
 
 func main() {
 	// Create a listener
-	list, err := net.Listen("tcp", "...")
+	//list, err := net.Listen("tcp", "127.0.0.1:8080")
+	list, err := net.Listen("tcp", "172.18.1.242:9907")
 	if err != nil {
 		fmt.Printf("Listen失败:%v", err)
 		return
