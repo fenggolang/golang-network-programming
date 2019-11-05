@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"net"
 	"testing"
 	"time"
@@ -134,6 +135,7 @@ func TestParse_ipv4(t *testing.T) {
 	}
 
 	pl := &Listener{Listener: l}
+	//pl := l
 	go func() {
 		conn, err := net.Dial("tcp", pl.Addr().String())
 		if err != nil {
@@ -177,6 +179,8 @@ func TestParse_ipv4(t *testing.T) {
 
 	// Check the remote addr
 	addr := conn.RemoteAddr().(*net.TCPAddr)
+	fmt.Println(addr.IP.String())
+	fmt.Println(addr.Port)
 	if addr.IP.String() != "10.1.1.1" {
 		t.Fatalf("bad: %v", addr)
 	}
