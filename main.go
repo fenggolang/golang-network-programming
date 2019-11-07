@@ -6,7 +6,7 @@ import (
 
 	"github.com/armon/go-proxyproto"
 )
-
+// https://cbonte.github.io/haproxy-dconv/1.8/configuration.html
 func main() {
 	// 创建一个监听器
 	listener, err := net.Listen("tcp4", "0.0.0.0:8080")
