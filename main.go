@@ -7,6 +7,9 @@ import (
 	"github.com/armon/go-proxyproto"
 )
 
+/**
+测试程序，把程序放到paas上部署(paas上的haproxy的配置需要做如下修改)
+*/
 func main() {
 	// 创建一个监听器
 	listener, err := net.Listen("tcp4", "0.0.0.0:8080")
