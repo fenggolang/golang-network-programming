@@ -8,7 +8,7 @@ import (
 )
 
 /**
-测试程序，把程序放到paas上部署(paas上的haproxy的配置需要做如下修改)
+测试程序，把程序放到paas上部署(paas上的haproxy的配置需要做四层负载注解部分修改)
 */
 func main() {
 	// 创建一个监听器
